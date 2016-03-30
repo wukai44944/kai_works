@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+	*{margin: 0;padding: 0;list-style: none;}
+	body{background: #ccc;}
+	#div{width: 490px;margin: 50px auto;background: #fff;height: 490px;}
+	ul{width: 510px;background: #fff;}
+	li{width: 150px;height: 150px;background: #3fa1ae;float: left;margin-right: 20px;margin-bottom:20px;overflow: hidden;}
+	span{width: 150px;height: 150px;background: rgba(0,255,0,0.5);position: absolute;left:-150px;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById('div');
+			var oUl=oDiv.children[0];
+			var aLi=oUl.children;
+			var arr=[];
+			for (var i = 0; i < aLi.length; i++) {
+				var json={};
+				json.left=aLi[i].offsetLeft;
+				json.top=aLi[i].offsetTop;
+				arr.push(json)
+			}
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].style.left=arr[i].left+'px';
+				aLi[i].style.top=arr[i].top+'px';
+				aLi[i].style.margin=0;
+				aLi[i].style.position='absolute';
+			}
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].onmouseenter=function(ev){
+					var oSpan=this.children[0];
+					var oEvt=ev || event/*;alert(this.offsetLeft)*/
+					var x=oEvt.clientX-this.offsetLeft-this.offsetWidth/2;
+					var y=this.offsetTop+this.offsetHeight/2-oEvt.clientY;
+					/*console.log(oEvt.clientY)*/
+					var n=Math.round(((Math.atan2(y,x))*180/Math.PI+180)/90)%4;
+					//var c=Math.round(((Math.atan2(y,x))*180/Math.PI+180)/90)%4;
+					//console.log(n)
+					if (n==0) {
+						oSpan.style.left=-this.offsetWidth+'px';
+						oSpan.style.top=0+'px';
+						var X=this.offsetWidth;
+						var Y=0;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+					if (n==1) {
+						oSpan.style.left=0+'px';
+						oSpan.style.top=this.offsetHeight+'px';
+						var X=0;
+						var Y=-this.offsetHeight;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+					if (n==2) {
+						oSpan.style.left=this.offsetWidth+'px';
+						oSpan.style.top=0+'px';
+						var X=-this.offsetWidth;
+						var Y=0;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+					if (n==3) {
+						oSpan.style.left=0+'px';
+						oSpan.style.top=-this.offsetHeight+'px';
+						var X=0;
+						var Y=this.offsetHeight;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+				}
+				aLi[i].onmouseleave=function(ev){
+					var oSpan=this.children[0];
+					var oEvt=ev || event/*;alert(this.offsetLeft)*/
+					var x=oEvt.clientX-this.offsetLeft-this.offsetWidth/2;
+					var y=this.offsetTop+this.offsetHeight/2-oEvt.clientY;
+					/*console.log(oEvt.clientY)*/
+					var n=Math.round(((Math.atan2(y,x))*180/Math.PI+180)/90)%4;
+					//var c=Math.round(((Math.atan2(y,x))*180/Math.PI+180)/90)%4;
+					//console.log(n)
+					if (n==0) {
+						oSpan.style.left=0+'px';
+						oSpan.style.top=0+'px';
+						var X=-this.offsetWidth;
+						var Y=0;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+					if (n==1) {
+						oSpan.style.left=0+'px';
+						oSpan.style.top=0+'px';
+						var X=0;
+						var Y=this.offsetHeight;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+					if (n==2) {
+						oSpan.style.left=0+'px';
+						oSpan.style.top=0+'px';
+						var X=this.offsetWidth;
+						var Y=0;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+					if (n==3) {
+						oSpan.style.left=0+'px';
+						oSpan.style.top=0+'px';
+						var X=0;
+						var Y=-this.offsetHeight;
+						var x=oSpan.offsetLeft;
+						var y=oSpan.offsetTop;
+						move(oSpan,X,Y,x,y);
+					}
+				}
+			}
+			function move(obj,disX,disY,l,t){
+				var count=Math.round(300/30);
+				var n=0;
+				clearInterval(obj.timer);
+				obj.timer=setInterval(function(){
+					n++;
+					obj.style.left=l+disX*n/count+'px';
+					obj.style.top=t+disY*n/count+'px';
+					if (n==count) {
+						clearInterval(obj.timer);
+					}
+				},30)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div">
+		<ul>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+			<li>
+				<span></span>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
