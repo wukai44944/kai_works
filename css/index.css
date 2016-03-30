@@ -1,0 +1,49 @@
+*{margin: 0;padding: 0;list-style:none;}
+html{overflow: hidden;}
+body{position: absolute;top:0;left: 0;}
+a{text-decoration: none;}
+.top,.img{width: 100%;height: 100%;}
+.top{position: relative;overflow: hidden;/*transition: 1s all ease;*/}
+.top_div{width:375px;height:360px;background: url(../images/girl.png) no-repeat;position: absolute;bottom: 3px;left:50%;transform: translate(0px,0px);}
+.top_p1{width: 282px;height: 154px;background: url(../images/plane.png);position: absolute;left:-110px;top:-50px;}
+.top_p2{width: 98px;height: 26px;position: absolute;top:-18px;left:-30px;background: url(../images/propeller.png) no-repeat;transform-origin: center center;}
+.top_fei{position: absolute;top: 0;left:0;}
+.top_name{position: fixed;top: 5%;left:10%;color: #fff;font-size: 40px;font-weight: 600;text-shadow: 2px 2px 1px #000;z-index: 100;}
+.top_count{position: absolute;top:20%;left:10%;font-weight: 600;font-size: 20px;color:#fff;text-shadow: 2px 2px 1px #000;}
+.top_tab{position: fixed;top:5%;right:2%;width: 30px;z-index: 100;}
+.top_tab div{cursor: pointer;width: 60px;height: 10px;background-color: #ccc;margin-top: 5px;float: right;border-radius: 2px;}
+.top_tab span{display: none;opacity:0;}
+.top_tab .show span{display: block;color: #fff;font-size: 25px;font-weight: 600;text-shadow: 2px 2px 1px #000;line-height: 40px;opacity: 1;}
+.top_tab div.show{width:120px;height: 40px;background:rgba(255,0,0,0.5);text-align: center;border-radius: 5px;}
+/*.top_p2:hover{transform: rotate(120deg)}*/
+.css3,.css3_back{width: 100%;height: 100%;}
+.css3{margin-top: 0;position: relative;}
+.css3_back{background: -webkit-linear-gradient(top,#3fa1ae,#5cbac7);-o-linear-gradient(top,#3fa1ae,#5cbac7);-moz-linear-gradient(top,#3fa1ae,#5cbac7);}
+.css3_count{width: 800px;position: absolute;left: 50%;top:50%;clear: both;margin-left: -400px;margin-top: -85px;opacity: 0;transform: translate(-50px,0);}
+.css3_a1{width: 175px;height: 175px;background: url(../images/about-icon-1.png) no-repeat;float: left;margin-right: 25px;}
+.css3_a2{width: 175px;height: 175px;background: url(../images/about-icon-2.png) no-repeat;float: left;margin-right: 25px;}
+.css3_a3{width: 175px;height: 175px;background: url(../images/about-icon-3.png) no-repeat;float: left;margin-right: 25px;}
+.css3_a4{width: 175px;height: 175px;background: url(../images/about-icon-4.png) no-repeat;float: left;margin-right: 25px;}
+.css3_count span{display: block;color:#fff;text-shadow: 2px 2px 1px #000;font-size: 20px;margin-top: 180px;margin-left: 45px;}
+.js,.js_back{width: 100%;height: 100%;}
+.js{position:relative;}
+.js_back{background: -webkit-linear-gradient(top,#e36362,#e77978);-o-linear-gradient(top,#e36362,#e77978);-moz-linear-gradient(top,#e36362,#e77978);}
+.js_left{width:64px;height:123px;background:url(../images/angle-left.png);position:absolute;top:40%;left:20%;cursor:pointer;}
+.js_right{width:64px;height:123px;background:url(../images/angle-right.png);position:absolute;top:40%;right:20%;cursor:pointer;}
+
+.js_zuop{width:40%;height:60%;position:absolute;top:30%;left:30%;overflow:hidden;}
+.js_cd{width:200%;position:absolute;left:0;top:0;}
+.js_one{float:left;width:50%;}
+.js_1{width:162px;height:137px;background:url(../images/js.png) no-repeat;margin:0 auto;}
+.js_one p{margin:30px auto;font-size:24px;color:#fff;width:144px;}
+.js_tow{float:left;width:50%;}
+.js_2{width:126px;height:149px;background:url(../images/js2.png) no-repeat;margin:0 auto;}
+.js_tow p{margin:20px auto;font-size:24px;color:#fff;width:144px}
+
+.css{width:100%;height:100%;position:relative;}
+.css_plan{width:282px;height:154px;position:absolute;top:10%;left:45%;}
+.css_shen{width:282px;height:154px;background:url(../images/plane.png) no-repeat;}
+.css_xuan{width:98px;height: 26px;position:absolute;top:32px;left:80px;background:url(../images/propeller.png) no-repeat;}
+.css_div{width:500px;position:absolute;left:50%;top:40%;margin-left:-250px;height:200px;}
+.css_li1{width:200px;height:200px;background:url(../images/p.png) no-repeat;background-size:200px 200px;float:left;}
+.css_a{width:200px;height:200px;background:url(../images/x.png) no-repeat;background-size:200px 200px;float:right;}
